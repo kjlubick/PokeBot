@@ -99,6 +99,7 @@ function input.advance()
 end
 
 function input.setDebug(enabled)
+	print("input set");
 	debug = enabled
 end
 
