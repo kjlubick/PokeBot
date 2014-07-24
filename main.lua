@@ -9,7 +9,7 @@ local PAINT_ON		= true -- Displays contextual information while the bot runs
 -- Start code (hard hats on)
 
 local START_WAIT = 99
-local VERSION = "1.1"
+local VERSION = "1.0"
 
 local battle = require "action.battle"
 local textbox = require "action.textbox"
@@ -41,20 +41,12 @@ local criticaled = false
 local function startNewAdventure()
 	local startMenu, withBattleStyle
 	if (YELLOW) then
-		print("yellow "..YELLOW)
 		startMenu = memory.raw(0x0F95) == 0
 		withBattleStyle = "battle_style"
 	else
-		startMenu = memory.value("player", "name2") ~= 0
+		startMenu = memory.value("player", "name") ~= 0
 	end
-	if startMenu then
-		print("startMenu Yes")
-	else
-
-	end
-
 	if (startMenu and menu.getCol() ~= 0) then
-		print("setting text speed")
 		if (settings.set("text_speed", "battle_animation", withBattleStyle)) then
 			menu.select(0)
 		end
@@ -116,13 +108,9 @@ if (RESET_FOR_TIME and hasAlreadyStartedPlaying) then
 	RESET_FOR_TIME = false
 	print("Disabling time-limit resets as the game is already running. Please reset the emulator and restart the script if you'd like to go for a fast time.")
 end
-
-
 if (productionMode) then
-	conosle.log("is ProductionMode")
 	bridge.init()
 else
-	console.log("is not productionMode")
 	input.setDebug(true)
 end
 
