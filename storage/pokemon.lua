@@ -84,7 +84,7 @@ local data = {
 }
 
 local function getAddress(index)
-	return 0xD16B + index * 0x2C
+	return 0x116B + index * 0x2C
 end
 
 local function index(index, offset)
