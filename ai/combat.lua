@@ -315,8 +315,9 @@ function combat.inKillRange(draw)
 		return false
 	end
 	if (draw) then
-		gui.text(0, 21, ours.speed.." "..enemy.speed)
-		gui.text(0, 28, turnsToDie.." "..ours.hp.." | "..turnsToKill.." "..enemy.hp)
+		gui.text(0, 21, "our Speed"..ours.speed.." theirs"..enemy.speed)
+		gui.text(0, 28, "Turns to die |  hp || turns to kill || their hp")
+		gui.text(0, 35, turnsToDie.." |"..ours.hp.." || "..turnsToKill.." "..enemy.hp)
 	end
 	local hpReq = enemyAttack.damage
 	local isConfused = memory.value("battle", "confused") > 0

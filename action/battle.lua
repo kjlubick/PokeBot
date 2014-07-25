@@ -13,11 +13,13 @@ local utils = require "util.utils"
 local inventory = require "storage.inventory"
 local pokemon = require "storage.pokemon"
 
+local drawCombatStats = true
+
 local function potionsForHit(potion, currHP, maxHP)
 	if (not potion) then
 		return
 	end
-	local ours, killAmount = combat.inKillRange()
+	local ours, killAmount = combat.inKillRange(drawCombatStats)
 	if (ours) then
 		local potionHP
 		if (potion == "full_restore") then

@@ -45,14 +45,14 @@ function paint.draw(currentMap)
 		local def = pokemon.index(nidx, "defense")
 		local spd = pokemon.index(nidx, "speed")
 		local scl = pokemon.index(nidx, "special")
-		gui.text(100, 0, att.." "..def.." "..spd.." "..scl)
+		gui.text(100, 0, "nido stats: "..att.." "..def.." "..spd.." "..scl)
 	end
 	local enc = " encounter"
 	if (encounters ~= 1) then
 		enc = enc.."s"
 	end
-	gui.text(0, 116, memory.value("battle", "critical"))
-	gui.text(0, 125, memory.value("player", "repel"))
+	gui.text(0, 116, "Crit! "..memory.value("battle", "critical"))
+	gui.text(0, 125, "Repel: "..memory.value("player", "repel"))
 	gui.text(0, 134, encounters..enc)
 	return true
 end
