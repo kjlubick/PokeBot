@@ -66,7 +66,7 @@ local memoryNames = {
 		critical = 0x105E,
 
 		opponent_bide = 0x106F,
-		opponent_id = 0x1FE5,
+		opponent_id = 0x0FE5,
 		opponent_atk_def_iv = 0x0ff1,
 		opponent_spd_scl_iv = 0x0ff2,
 		opponent_level = 0x0FF3,
