@@ -140,7 +140,7 @@ end
 strategies.death = resetDeath
 
 local function overMinute(min)
-	return utils.igt() > min * 60
+	return RESET_FOR_TIME and (utils.igt() > min * 60)
 end
 
 local function resetTime(timeLimit, reason, once)
@@ -794,8 +794,15 @@ strategyFunctions = {
 					bridge.pollForName()
 				end
 
-				if (memory.value("battle", "opponent_atk_def_iv") < 96 or memory.value("battle", "opponent_spd_scl_iv") < 116) then
-					return reset("Nidoran would have not been good",memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
+				if (not ANY_NIDO and (memory.value("battle", "opponent_atk_def_iv") < 96 or memory.value("battle", "opponent_spd_scl_iv") < 116)) then
+
+					-- One or two of the stats will be okay
+					if (not OKAY_NIDO and memory.value("battle", "opponent_atk_def_iv") < 96 and memory.value("battle", "opponent_spd_scl_iv") < 116) then    
+						return reset("Nidoran would have not been good",
+							memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
+					end
+				else
+					console.log("Attempting to catch nido W/ ivs:"..memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
 				end
 
 			end
@@ -1010,7 +1017,7 @@ strategyFunctions = {
 					canProgress = false
 					battle.fight()
 				end
-				if (tries < 9000) then
+				if (tries < 9000) then -- tries is a waiting mechanism, to mark progress through this
 					local nidx = pokemon.indexOf("nidoran")
 					if (pokemon.index(nidx, "level") == 8) then
 						local att = pokemon.index(nidx, "attack")
@@ -1031,7 +1038,7 @@ strategyFunctions = {
 								resets = true
 							end
 							local nStatus = "Att: "..att..", Def: "..def..", Speed: "..spd..", Special: "..scl
-							if (resets) then
+							if (not OKAY_NIDO and not ANY_NIDO and resets) then
 								return reset("Bad Nidoran - "..nStatus)
 							end
 							tries = 9001

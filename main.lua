@@ -2,6 +2,8 @@
 
 GAME_NAME		= "red" -- Only currently supported option
 RESET_FOR_TIME	= false	-- Set to false if you just want to see the bot finish a run
+OKAY_NIDO = true		--be a little more flexible on Nidoran stats
+ANY_NIDO = false		-- Let's go, literally anything
 
 local CUSTOM_SEED	= nil -- Set to a known seed to replay it, or leave nil for random ones
 local PAINT_ON		= true -- Displays contextual information while the bot runs
