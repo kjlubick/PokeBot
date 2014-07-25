@@ -793,7 +793,10 @@ strategyFunctions = {
 					bridge.pollForName()
 				end
 
-				
+				if (memory.value("battle", "opponent_atk_def_iv") < 96 or memory.value("battle", "opponent_spd_scl_iv") < 116) then
+					return reset("Nidoran would have not been good",memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
+				end
+
 			end
 			tries = nil
 			if (memory.value("menu", "text_input") == 240) then
