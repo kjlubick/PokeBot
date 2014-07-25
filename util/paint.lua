@@ -9,15 +9,15 @@ local pokemon = require "storage.pokemon"
 local encounters = 0
 
 function elapsedTime()
-	local secs = memory.raw(0xDA44)
+	local secs = memory.raw(0x1A44)
 	if (secs < 10) then
 		secs = "0"..secs
 	end
-	local mins = memory.raw(0xDA43)
+	local mins = memory.raw(0x1A43)
 	if (mins < 10) then
 		mins = "0"..mins
 	end
-	return memory.raw(0xDA41)..":"..mins..":"..secs
+	return memory.raw(0x1A41)..":"..mins..":"..secs
 end
 paint.elapsedTime = elapsedTime
 

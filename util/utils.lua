@@ -43,9 +43,9 @@ function utils.key(needle, haystack)
 end
 
 function utils.igt()
-	local secs = memory.raw(0xDA44)
-	local mins = memory.raw(0xDA43)
-	local hours = memory.raw(0xDA41)
+	local secs = memory.raw(0x1A44)
+	local mins = memory.raw(0x1A43)
+	local hours = memory.raw(0x1A41)
 	return secs + mins * 60 + hours * 3600
 end
 

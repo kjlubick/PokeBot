@@ -739,6 +739,7 @@ strategyFunctions = {
 	squirtleIChooseYou = function()
 		if (pokemon.inParty("squirtle")) then
 			bridge.caught("squirtle")
+			--todo can probably IV filter squirtle here
 			return true
 		end
 		if (player.face("Up")) then
