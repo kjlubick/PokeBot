@@ -307,6 +307,10 @@ function combat.healthFor(opponent)
 	return enemyAttack.damage
 end
 
+function ternary(cond, T, F)
+	if cond then return T else return F end
+end
+
 function combat.inKillRange(draw)
 	local ours, enemy = activePokemon()
 	local enemyAttack, __ = calcBestHit(enemy, ours, false)
@@ -317,7 +321,7 @@ function combat.inKillRange(draw)
 	if (draw) then
 		gui.text(0, 21, "our Speed"..ours.speed.." theirs"..enemy.speed)
 		gui.text(0, 28, "Turns to die |  hp || turns to kill || their hp")
-		gui.text(0, 35, turnsToDie.." |"..ours.hp.." || "..turnsToKill.." "..enemy.hp)
+		gui.text(0, 35, ternary(turnsToDie,turnsToDie,"[?]").." |"..ours.hp.." || "..ternary(turnsToKill,turnsToKill,"[?]").." "..enemy.hp)
 	end
 	local hpReq = enemyAttack.damage
 	local isConfused = memory.value("battle", "confused") > 0
