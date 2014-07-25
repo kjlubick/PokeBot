@@ -76,6 +76,8 @@ local data = {
 	moves = {8},
 	level = {33},
 	max_hp = {34, true},
+	ivs_atk_def = {27},
+	ivs_spd_scl = {28},
 
 	attack = {36, true},
 	defense = {38, true},
