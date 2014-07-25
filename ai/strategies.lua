@@ -801,9 +801,9 @@ strategyFunctions = {
 						return reset("Nidoran would have not been good",
 							memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
 					end
-				else
-					console.log("Attempting to catch nido W/ ivs:"..memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
 				end
+				console.log("Attempting to catch nido W/ ivs:"..memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
+
 
 			end
 			tries = nil
