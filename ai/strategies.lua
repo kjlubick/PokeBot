@@ -815,7 +815,7 @@ strategyFunctions = {
 				else
 					input.cancel()
 				end
-			elseif (not control.shouldCatch()) then
+			elseif (not control.shouldCatch()) then   --shouldCatch will attempt to catch the pokemon if needed
 				if (control.shouldFight()) then
 					battle.fight()
 				else
