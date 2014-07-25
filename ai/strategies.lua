@@ -753,7 +753,7 @@ strategyFunctions = {
 				squirtleDef = pokemon.index(0, "defense")
 				squirtleSpd = pokemon.index(0, "speed")
 				squirtleScl = pokemon.index(0, "special")
-				if ((squirtleAtt < 11 and def < 14) or def < 13) then -- a squirtle with 10 atk and 12 or 13 def is not going to last long.  Special doesn't impact 2 shotting Geodude/onix.  12 def is bottom shelf squirtle (IVs 0-1), so we can be picky
+				if ((squirtleAtt < 11 and squirtleDef < 14) or squirtleDef < 13) then -- a squirtle with 10 atk and 12 or 13 def is not going to last long.  Special doesn't impact 2 shotting Geodude/onix.  12 def is bottom shelf squirtle (IVs 0-1), so we can be picky
 					return reset("Bad Squirtle - "..squirtleAtt.." attack, "..squirtleDef.." defense")
 				end
 				tries = 9001
