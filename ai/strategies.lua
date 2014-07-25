@@ -876,7 +876,7 @@ strategyFunctions = {
 			canProgress = true
 			local squirtleOut = pokemon.isDeployed("squirtle")
 			if (squirtleOut and memory.value("battle", "our_status") > 0 and not inventory.contains("antidote")) then
-				return reset("Poisoned, but we skipped the antidote")
+				return reset("Poisoned, but we don't have an antidote")
 			end
 			local sidx = pokemon.indexOf("spearow")
 			if (sidx ~= -1 and pokemon.index(sidx, "level") > 3) then
