@@ -1,0 +1,14 @@
+Domain WRAM
+SystemID GB
+116B	b	u	0	WRAM	Pokemon Start
+116C	w	u	1	WRAM	First Slot HP
+116F	b	u	0	WRAM	First Slot Status
+1186	b	u	0	WRAM	First Slot atk/def IV
+1187	b	u	0	WRAM	First Slot spd/spe IV
+11B2	b	u	0	WRAM	2nd Slot atk/def IV
+11B3	b	u	0	WRAM	2nd Slot spd/spe IV
+11DE	b	u	0	WRAM	3rd Slot atk/def IV
+11DF	b	u	0	WRAM	3rd Slot spd/spe IV
+0FF1	b	u	0	WRAM	Opponents Atk/def IV
+0FF2	b	u	0	WRAM	Opponents spd/spe IV
+
