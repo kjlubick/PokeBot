@@ -86,9 +86,6 @@ end
 -- Actions
 
 function inventory.teach(item, poke, replaceIdx, altPoke)
-	if poke then
-		console.log("Teaching "..item.." to "..poke)
-	end
 	local main = memory.value("menu", "main")
 	local column = menu.getCol()
 	if (main == 144) then
