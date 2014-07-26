@@ -797,13 +797,12 @@ strategyFunctions = {
 				if (not ANY_NIDO and (memory.value("battle", "opponent_atk_def_iv") < 96 or memory.value("battle", "opponent_spd_scl_iv") < 116)) then
 
 					-- One or two of the stats will be okay
-					if (not OKAY_NIDO and memory.value("battle", "opponent_atk_def_iv") < 96 and memory.value("battle", "opponent_spd_scl_iv") < 116) then    
+					if (not ((OKAY_NIDO and memory.value("battle", "opponent_atk_def_iv") >= 96) or (OKAY_NIDO and memory.value("battle", "opponent_spd_scl_iv") >= 116))) then    
 						return reset("Nidoran would have not been good",
 							memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
 					end
 				end
-				console.log("Attempting to catch nido W/ ivs:"..memory.value("battle", "opponent_atk_def_iv").." "..memory.value("battle", "opponent_spd_scl_iv"))
-
+				
 
 			end
 			tries = nil
@@ -828,7 +827,7 @@ strategyFunctions = {
 			local hasNidoran = pokemon.inParty("nidoran")
 			if (hasNidoran) then
 				if (not tempDir) then
-					bridge.caught("nidoran")
+					bridge.caught("nidoran", memory.value("battle", "opponent_atk_def_iv"),memory.value("battle", "opponent_spd_scl_iv"))
 					tempDir = true
 				end
 				if (pokemon.getExp() > 205) then

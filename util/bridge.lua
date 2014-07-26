@@ -46,9 +46,9 @@ end
 
 function bridge.chat(message, extra)
 	if (extra) then
-		print(message.." || "..extra)
+		console.log(message.." || "..extra)
 	else
-		print(message)
+		console.log(message)
 	end
 	return send("msg", message)
 end
@@ -87,8 +87,13 @@ function bridge.input(key)
 	send("input", key)
 end
 
-function bridge.caught(name)
+function bridge.caught(name, firstIVs, secondIVs)
 	if (name) then
+		if (firstIVs and secondIVs) then
+			console.log("Caught "..name.." "..firstIVs.." "..secondIVs)
+		else
+			console.log("Caught "..name)
+		end
 		send("caught", name)
 	end
 end

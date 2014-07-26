@@ -86,6 +86,9 @@ end
 -- Actions
 
 function inventory.teach(item, poke, replaceIdx, altPoke)
+	if poke then
+		console.log("Teaching "..item.." to "..poke)
+	end
 	local main = memory.value("menu", "main")
 	local column = menu.getCol()
 	if (main == 144) then
@@ -129,9 +132,11 @@ function inventory.isFull()
 end
 
 function inventory.use(item, poke, midfight)
+	
 	if (midfight) then
 		local battleMenu = memory.value("battle", "menu")
 		if (battleMenu == 94) then
+
 			local rowSelected = memory.value("menu", "row")
 			if (menu.getCol() == 9) then
 				if (rowSelected == 0) then
@@ -143,6 +148,7 @@ function inventory.use(item, poke, midfight)
 				input.press("Left")
 			end
 		elseif (battleMenu == 233) then
+			--console.log("using "..item)
 			menu.select(inventory.indexOf(item), "accelerate", true)
 		elseif (utils.onPokemonSelect(battleMenu)) then
 			if (poke) then
@@ -151,6 +157,7 @@ function inventory.use(item, poke, midfight)
 				end
 				menu.select(poke, true)
 			else
+				--console.log("using "..item)
 				input.press("A")
 			end
 		else
