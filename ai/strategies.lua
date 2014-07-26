@@ -449,7 +449,7 @@ end
 local strategyFunctions
 strategyFunctions = {
 
-	a = function(data)
+	setArea = function(data)
 		areaName = data.a
 		return true
 	end,
